@@ -1,0 +1,14 @@
+# Metadata for the project
+# Uncomment and edit the fields you want to include in the metadata
+# See metadata properties at https://koza.monarchinitiative.org/Ingests/source_config/
+
+id:  'CURIE for the project'
+name: 'maxo_annotation'
+ingest_title: 'maxo_annotation_ingest'
+ingest_url: 'https://github.com/monarch-initiative/maxo-annotation-ingest'
+description: 'Transform of MAxO Annotations into Biolink Model compliant KGX'
+# source: 'Possibly replaced by provided_by'
+provided_by: 'maxo'
+# One of license and rights is possibly redundant
+license: 'Link to license'
+rights: 'Link to rights' 
