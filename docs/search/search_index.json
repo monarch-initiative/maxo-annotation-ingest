@@ -1,1 +1,1 @@
-{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"maxo-annotation-ingest Report","text":""}]}
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"maxo-annotation-ingest Report","text":"<p>The MAxO Annotation Ingest converts MAxO Annotation data to Biolink Model compliant KGX format. </p> <p>Mapping between MAxO </p>"}]}
