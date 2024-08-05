@@ -342,7 +342,164 @@
 
 <h1 id="maxo-annotation-ingest-report">maxo-annotation-ingest Report</h1>
 <p>The MAxO Annotation Ingest converts MAxO Annotation data to Biolink Model compliant KGX format. </p>
-<p>Mapping between MAxO </p>
+<p>Example annotation records: </p>
+<table>
+<thead>
+<tr>
+<th>disease_id</th>
+<th>disease_name</th>
+<th>citation</th>
+<th>maxo_id</th>
+<th>maxo_label</th>
+<th>hpo_id</th>
+<th>maxo_relation</th>
+<th>evidence_code</th>
+<th>extension_id</th>
+<th>extension_label</th>
+<th>attribute</th>
+<th>creator</th>
+<th>last_update</th>
+<th>created_on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MONDO:0014590</td>
+<td>Myasthenic Syndrome, Congenital, 18</td>
+<td>PMID:25381298</td>
+<td>MAXO:0000434</td>
+<td>calcium channel blocking agent therapy</td>
+<td>HP:0001324</td>
+<td>TREATS</td>
+<td>TAS</td>
+<td>CHEBI:51599</td>
+<td>2,4-diaminopyridine</td>
+<td></td>
+<td>ORCID:0000-0002-0736-9199</td>
+<td>2022-09-27</td>
+<td>2022-09-27</td>
+</tr>
+<tr>
+<td>MONDO:0014584</td>
+<td>Myasthenic Syndrome, Congenital, 3b, Fast-channel</td>
+<td>PMID:11435464</td>
+<td>MAXO:0000210</td>
+<td>cholinesteriase inhibitor therapy</td>
+<td>HP:0001324</td>
+<td>TREATS</td>
+<td>TAS</td>
+<td>CHEBI:8665</td>
+<td>Pyridostigmine</td>
+<td></td>
+<td>ORCID:0000-0002-0736-9199</td>
+<td>2023-02-26</td>
+<td>2023-02-26</td>
+</tr>
+<tr>
+<td>MONDO:0010421</td>
+<td>Agammaglobulinemia, X-linked</td>
+<td>PMID:26909497</td>
+<td>MAXO:0001480</td>
+<td>immunoglobulin infusion therapy</td>
+<td>HP:0004432</td>
+<td>TREATS</td>
+<td>PCS</td>
+<td></td>
+<td></td>
+<td></td>
+<td>ORCID:0000-0001-9969-9517</td>
+<td>2023-06-10</td>
+<td>2023-03-15</td>
+</tr>
+<tr>
+<td>MONDO:0010196</td>
+<td>Werner Syndrome</td>
+<td>PMID:20301687</td>
+<td>MAXO:0001139</td>
+<td>calcium supplementation</td>
+<td>HP:0000939</td>
+<td>PREVENTS</td>
+<td>TAS</td>
+<td></td>
+<td></td>
+<td></td>
+<td>ORCID:0000-0002-4142-7153</td>
+<td>2023-02-11</td>
+<td>2022-02-28</td>
+</tr>
+<tr>
+<td>MONDO:0010156</td>
+<td>Spastic Paraplegia 20, Autosomal Recessive</td>
+<td>PMID:20301556</td>
+<td>MAXO:0000011</td>
+<td>physical therapy</td>
+<td>HP:0007340</td>
+<td>PREVENTS</td>
+<td>TAS</td>
+<td></td>
+<td></td>
+<td></td>
+<td>ORCID:0000-0002-4142-7153</td>
+<td>2022-02-28</td>
+<td>2022-02-28</td>
+</tr>
+<tr>
+<td>MONDO:0008667</td>
+<td>Von Hippel-lindau Syndrome</td>
+<td>PMID:20301636</td>
+<td>MAXO:0000058</td>
+<td>pharmacotherapy</td>
+<td>HP:0009713</td>
+<td>PREVENTS</td>
+<td>TAS</td>
+<td></td>
+<td></td>
+<td>comment: "CHEBI:9513"</td>
+<td>ORCID:0000-0002-4142-7153</td>
+<td>2023-06-14</td>
+<td>2022-08-01</td>
+</tr>
+<tr>
+<td>MONDO:0100079</td>
+<td>Epileptic Encephalopathy, Early Infantile, 6 (dravet Syndrome)</td>
+<td>PMID:9596203</td>
+<td>MAXO:0000208</td>
+<td>sodium channel inhibitor therapy</td>
+<td>HP:0032794</td>
+<td>CONTRAINDICATED</td>
+<td>TAS</td>
+<td>CHEBI:6367</td>
+<td>lamotrigine</td>
+<td>comment: "Seizures can worsen on withdrawing lamotrigine."</td>
+<td>ORCID:0000-0002-1735-8178</td>
+<td>2023-07-12</td>
+<td>2023-07-12</td>
+</tr>
+</tbody>
+</table>
+<p>Mapping between MAxO relation and biolink predicate: </p>
+<table>
+<thead>
+<tr>
+<th>maxo_relation</th>
+<th>biolink_predicate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TREATS</td>
+<td><a href="https://biolink.github.io/biolink-model/ameliorates_condition/">https://biolink.github.io/biolink-model/ameliorates_condition/</a></td>
+</tr>
+<tr>
+<td>PREVENTS</td>
+<td><a href="https://biolink.github.io/biolink-model/preventative_for_condition/">biolink:prevantative_for_condition</a></td>
+</tr>
+<tr>
+<td>CONTRAINDICATED</td>
+<td><a href="https://biolink.github.io/biolink-model/contraindicated_in/">https://biolink.github.io/biolink-model/contraindicated_in/</a></td>
+</tr>
+</tbody>
+</table>
 
 
 
