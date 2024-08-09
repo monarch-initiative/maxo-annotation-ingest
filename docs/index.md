@@ -22,6 +22,6 @@ Mapping between MAxO relation and biolink predicate:
 
 | maxo_relation | biolink_predicate                                                                                         |
 |---------------|-----------------------------------------------------------------------------------------------------------|
-| TREATS        | https://biolink.github.io/biolink-model/ameliorates_condition/            |
+| TREATS        | [biolink:ameliorates_condition](https://biolink.github.io/biolink-model/ameliorates_condition/)           |
 | PREVENTS      | [biolink:prevantative_for_condition](https://biolink.github.io/biolink-model/preventative_for_condition/) |
-| CONTRAINDICATED | https://biolink.github.io/biolink-model/contraindicated_in/      |
+| CONTRAINDICATED | [biolink:contraindicated_in](https://biolink.github.io/biolink-model/contraindicated_in/)                 |
