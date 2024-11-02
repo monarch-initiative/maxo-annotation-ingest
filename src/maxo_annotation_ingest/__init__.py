@@ -1,4 +1,5 @@
 """maxo-annotation-ingest package."""
+
 import importlib_metadata
 
 try:

@@ -118,13 +118,13 @@ lxml = ["lxml"]
 
 [[package]]
 name = "biolink-model"
-version = "4.2.2"
+version = "4.2.5rc2"
 description = "The Biolink Model is a high-level data model designed to standardize types and relationships in biological knowledgebases."
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "biolink_model-4.2.2-py3-none-any.whl", hash = "sha256:a9809a9f0425ac6a6f259c5d5a39274d1ba0a0d4de2a6ca566e7adc5260f0e02"},
-    {file = "biolink_model-4.2.2.tar.gz", hash = "sha256:74f4755d9f6a8c2143fcc443be94d77478804a9abd332585a0d685d1e7c5e97a"},
+    {file = "biolink_model-4.2.5rc2-py3-none-any.whl", hash = "sha256:a51422bd4823e290ed07ff8bfafdeda09825d389dcc9c820fb9fcf4cd9e30031"},
+    {file = "biolink_model-4.2.5rc2.tar.gz", hash = "sha256:f721780b8d14d4c15bbdef3942cc5e39718bded601f90969e20febb0cf772400"},
 ]
 
 [package.dependencies]
@@ -2147,9 +2147,9 @@ files = [
 
 [package.dependencies]
 numpy = [
-    {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
     {version = ">=1.22.4", markers = "python_version < \"3.11\""},
     {version = ">=1.23.2", markers = "python_version == \"3.11\""},
+    {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
 ]
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
@@ -2428,8 +2428,8 @@ files = [
 annotated-types = ">=0.4.0"
 pydantic-core = "2.20.1"
 typing-extensions = [
-    {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
     {version = ">=4.6.1", markers = "python_version < \"3.13\""},
+    {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
 ]
 
 [package.extras]
@@ -4116,4 +4116,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f00f94ab0053671f4270d12e076906e4087798b126e9217e7e89c728e69cc50a"
+content-hash = "2e32a522612db47ac1c0e3d08c9b33adec1d796613ac360b1464d4c3d54f41a3"
