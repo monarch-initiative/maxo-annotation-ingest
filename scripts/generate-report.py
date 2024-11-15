@@ -21,7 +21,7 @@ if Path(edges_file).exists():
     query = f"""
     SELECT category, split_part(subject, ':', 1) as subject_prefix,
     predicate,
-    split_part(object, ':', 1), as object_prefix,
+    split_part(object, ':', 1) as object_prefix,
     split_part(disease_context_qualifier,':',1) as disease_context_qualifier_prefix,
     count(*) as count
     FROM '{edges_file}'
