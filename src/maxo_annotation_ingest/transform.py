@@ -26,15 +26,15 @@ while (row := koza_app.get_row()) is not None:
         raise ValueError(f"Not sure how to map maxo_relation {row['maxo_relation']} to a biolink predicate")
 
     disease_context_qualifier = row.get("disease_id") if row.get("disease_id") != row.get("hpo_id") else None
-
-    # TODO use a more specific class when one is available
+    
     association = ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation(
         id=str(uuid.uuid4()),
         subject=row["maxo_id"],
-        # subject_derivative_qualifier=row.get("extension_id"),
+# TODO: not yet supported in Biolink 4.2.5
+#        subject_specialization_qualifier=row.get("extension_id"), 
         predicate=predicate,
-        object=row["disease_id"],
-        # disease_context_qualifier=row.get("disease_id"),
+        object=row["hpo_id"],
+        disease_context_qualifier=row.get("disease_id"),
         knowledge_level=KnowledgeLevelEnum.knowledge_assertion,
         agent_type=AgentTypeEnum.manual_agent,
         publications=[row["citation"]],

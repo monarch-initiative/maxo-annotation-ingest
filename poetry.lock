@@ -118,18 +118,20 @@ lxml = ["lxml"]
 
 [[package]]
 name = "biolink-model"
-version = "4.2.5rc2"
+version = "4.2.5"
 description = "The Biolink Model is a high-level data model designed to standardize types and relationships in biological knowledgebases."
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "biolink_model-4.2.5rc2-py3-none-any.whl", hash = "sha256:a51422bd4823e290ed07ff8bfafdeda09825d389dcc9c820fb9fcf4cd9e30031"},
-    {file = "biolink_model-4.2.5rc2.tar.gz", hash = "sha256:f721780b8d14d4c15bbdef3942cc5e39718bded601f90969e20febb0cf772400"},
+    {file = "biolink_model-4.2.5-py3-none-any.whl", hash = "sha256:949079f33daa57d1a212fc756621bcc12746ec24bd85fd7fe2587848d18e4896"},
+    {file = "biolink_model-4.2.5.tar.gz", hash = "sha256:1b8eb43ccbe133da52efacc90dd9599edc02db9d9be985e02cfd7b66b9d27d0b"},
 ]
 
 [package.dependencies]
 beautifulsoup4 = ">=4.0.0"
 curies = ">=0.7.4,<0.8.0"
+linkml-runtime = ">=1.8.3,<2.0.0"
+path = ">=17.0.0,<18.0.0"
 prefixmaps = ">=0.2.3,<0.3.0"
 pytest = ">=8.1.1,<9.0.0"
 pyyaml = ">=6.0.1,<7.0.0"
@@ -1523,13 +1525,13 @@ typer = ">=0.12.3"
 
 [[package]]
 name = "linkml"
-version = "1.8.1"
+version = "1.8.5"
 description = "Linked Open Data Modeling Language"
 optional = false
 python-versions = "<4.0.0,>=3.8.1"
 files = [
-    {file = "linkml-1.8.1-py3-none-any.whl", hash = "sha256:a68cb4f9bfa16353a4f84ae581db8272a5d151db46f1d6b601c87cb0be6e2d28"},
-    {file = "linkml-1.8.1.tar.gz", hash = "sha256:19e53478119af11e7a6633d764c13dc9d849d3ff9e7d2efc87c9158041e7b7bb"},
+    {file = "linkml-1.8.5-py3-none-any.whl", hash = "sha256:5a45577a4bb380f3a128f45764545cb2da92dd3310a110de7dc5355796d5ac43"},
+    {file = "linkml-1.8.5.tar.gz", hash = "sha256:8f31834560ade4b7f1aebc973d22b31951d7061643d32bdcba258a650db9b140"},
 ]
 
 [package.dependencies]
@@ -1542,7 +1544,7 @@ jinja2 = ">=3.1.0"
 jsonasobj2 = ">=1.0.3,<2.0.0"
 jsonschema = {version = ">=4.0.0", extras = ["format"]}
 linkml-dataops = "*"
-linkml-runtime = "1.8.0"
+linkml-runtime = ">=1.8.1,<2.0.0"
 openpyxl = "*"
 parse = "*"
 prefixcommons = ">=0.1.7"
@@ -1560,8 +1562,9 @@ watchdog = ">=0.9.0"
 
 [package.extras]
 black = ["black (>=24.0.0)"]
+numpydantic = ["numpydantic (>=1.6.1)"]
 shacl = ["pyshacl (>=0.25.0,<0.26.0)"]
-tests = ["black (>=24.0.0)", "pyshacl (>=0.25.0,<0.26.0)"]
+tests = ["black (>=24.0.0)", "numpydantic (>=1.6.1)", "pyshacl (>=0.25.0,<0.26.0)"]
 
 [[package]]
 name = "linkml-dataops"
@@ -1583,13 +1586,13 @@ linkml-runtime = ">=1.1.6"
 
 [[package]]
 name = "linkml-runtime"
-version = "1.8.0"
+version = "1.8.3"
 description = "Runtime environment for LinkML, the Linked open data modeling language"
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "linkml_runtime-1.8.0-py3-none-any.whl", hash = "sha256:e99a809eda52640633f07a9e8b391d1a9da863eb68a475dfd74a79335b909931"},
-    {file = "linkml_runtime-1.8.0.tar.gz", hash = "sha256:436381a7bf791e9af4ef0a5adcac86762d451b77670fbdb3ba083d2c177fb5f2"},
+    {file = "linkml_runtime-1.8.3-py3-none-any.whl", hash = "sha256:0750920f1348fffa903d99e7b5834ce425a2a538285aff9068dbd96d05caabd1"},
+    {file = "linkml_runtime-1.8.3.tar.gz", hash = "sha256:5b7f682eef54aaf0a59c50eeacdb11463b43b124a044caf496cde59936ac05c8"},
 ]
 
 [package.dependencies]
@@ -2206,6 +2209,21 @@ files = [
     {file = "parse-1.20.2-py2.py3-none-any.whl", hash = "sha256:967095588cb802add9177d0c0b6133b5ba33b1ea9007ca800e526f42a85af558"},
     {file = "parse-1.20.2.tar.gz", hash = "sha256:b41d604d16503c79d81af5165155c0b20f6c8d6c559efa66b4b695c3e5a0a0ce"},
 ]
+
+[[package]]
+name = "path"
+version = "17.0.0"
+description = "A module wrapper for os.path"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "path-17.0.0-py3-none-any.whl", hash = "sha256:b7309739c569e30110a34c6c812e582c09ff504c43e1232817410181838918ed"},
+    {file = "path-17.0.0.tar.gz", hash = "sha256:e1540261d22df1416fb1b498b3b1ed5353a371a48fe197d66611bb01e7fab2d5"},
+]
+
+[package.extras]
+doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
+test = ["appdirs", "more-itertools", "packaging", "pygments", "pytest (>=6,!=8.1.*)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy", "pytest-ruff (>=0.2.1)", "pywin32"]
 
 [[package]]
 name = "pathspec"
@@ -4116,4 +4134,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "2e32a522612db47ac1c0e3d08c9b33adec1d796613ac360b1464d4c3d54f41a3"
+content-hash = "b1713de49f062178c0e1f476b3f3b173c3385f6172e503adf31d61f87d93302a"
