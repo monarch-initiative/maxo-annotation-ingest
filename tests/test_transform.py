@@ -9,8 +9,6 @@ https://koza.monarchinitiative.org/Usage/testing/
 """
 
 import pytest
-from koza.utils.testing_utils import mock_koza
-
 
 # Define the ingest name and transform script path
 INGEST_NAME = "maxo_annotation"
@@ -46,12 +44,13 @@ def test_row_with_extension(row_with_extension_entities):
     assert len(entities) == 1
     association = entities[0]
     assert association.subject == "MAXO:0000434"
-    # TODO: Not available in Biolink 4.2.5 
+    # TODO: Not available in Biolink 4.2.5
     # assert association.subject_specialization_qualifier == "CHEBI:51599"
     assert association.predicate == "biolink:ameliorates_condition"
     assert association.object == "HP:0001324"
     assert association.disease_context_qualifier == "MONDO:0014590"
     assert association.category == ["biolink:ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation"]
+
 
 # Define an example row to test (as a dictionary)
 @pytest.fixture
