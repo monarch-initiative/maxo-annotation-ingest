@@ -141,3 +141,5 @@ test-output/
 
 # Transform logs
 logs/
+
+.vscode
