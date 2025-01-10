@@ -13,6 +13,10 @@ predicate_mapping = {
     "TREATS": "biolink:ameliorates_condition",
     "PREVENTS": "biolink:preventative_for_condition",
     "CONTRAINDICATED": "biolink:contraindicated_in",
+    "UNKNOWN": "biolink:related_to",
+    "INVESTIGATES": "biolink:related_to", # TODO: this is too general, but biolink:diagnoses doesn't feel right
+    "LACK OF OBSERVED RESPONSE": "biolink:related_to", #TODO: this is also too general,
+                                                       # but negation + biolink:ameliorates_condition feels too strong
 }
 
 
@@ -21,7 +25,8 @@ while (row := koza_app.get_row()) is not None:
     # For more information, see https://koza.monarchinitiative.org/Ingests/transform
 
     try:
-        predicate = predicate_mapping.get(row["maxo_relation"])
+        predicate = predicate_mapping.get(row["maxo_relation"].upper())
+
     except KeyError:
         raise ValueError(f"Not sure how to map maxo_relation {row['maxo_relation']} to a biolink predicate")
 
