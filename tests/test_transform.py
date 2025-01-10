@@ -50,6 +50,8 @@ def test_row_with_extension(row_with_extension_entities):
     assert association.object == "HP:0001324"
     assert association.disease_context_qualifier == "MONDO:0014590"
     assert association.category == ["biolink:ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation"]
+    assert association.primary_knowledge_source == "infores:maxo"
+    assert association.aggregator_knowledge_source == ["infores:monarchinitiative"]
 
 
 # Define an example row to test (as a dictionary)
@@ -95,3 +97,5 @@ def test_no_hpo(no_hpo_entities):
     # this can't be captured yet
     # assert association.creator == "ORCID:0000-0002-0736-9199"
     assert association.category == ["biolink:ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation"]
+    assert association.primary_knowledge_source == "infores:maxo"
+    assert association.aggregator_knowledge_source == ["infores:monarchinitiative"]
