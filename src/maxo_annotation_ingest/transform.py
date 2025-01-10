@@ -30,11 +30,12 @@ while (row := koza_app.get_row()) is not None:
     association = ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation(
         id=str(uuid.uuid4()),
         subject=row["maxo_id"],
-        # TODO: not yet supported in Biolink 4.2.5
-        #        subject_specialization_qualifier=row.get("extension_id"),
+        subject_specialization_qualifier=row.get("extension_id"),
         predicate=predicate,
         object=row["hpo_id"],
         disease_context_qualifier=row.get("disease_id"),
+        primary_knowledge_source="infores:maxo",
+        aggregator_knowledge_source="infores:monarchinitiative",
         knowledge_level=KnowledgeLevelEnum.knowledge_assertion,
         agent_type=AgentTypeEnum.manual_agent,
         publications=[row["citation"]],

@@ -38,12 +38,13 @@ edge_properties:
   - id
   - category
   - subject
-# TODO: Not supported yet in Biolink 4.2.5
-#  - subject_extension_qualifier
+  - subject_extension_qualifier
   - predicate
   - object
   - disease_context_qualifier
   - publications
+  - primary_knowledge_source
+  - aggregator_knowledge_source
   - knowledge_level
   - agent_type
 

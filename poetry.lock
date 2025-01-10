@@ -118,13 +118,13 @@ lxml = ["lxml"]
 
 [[package]]
 name = "biolink-model"
-version = "4.2.5"
+version = "4.2.6rc1"
 description = "The Biolink Model is a high-level data model designed to standardize types and relationships in biological knowledgebases."
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "biolink_model-4.2.5-py3-none-any.whl", hash = "sha256:949079f33daa57d1a212fc756621bcc12746ec24bd85fd7fe2587848d18e4896"},
-    {file = "biolink_model-4.2.5.tar.gz", hash = "sha256:1b8eb43ccbe133da52efacc90dd9599edc02db9d9be985e02cfd7b66b9d27d0b"},
+    {file = "biolink_model-4.2.6rc1-py3-none-any.whl", hash = "sha256:0dc977898078007137e7fd180b757f44decb1e0ae33fc2a7008d4a8374a85f7d"},
+    {file = "biolink_model-4.2.6rc1.tar.gz", hash = "sha256:7f7114926e0954b7c002aec55a2214434a26b3dbf45e253a0ad12fb131c4f5a8"},
 ]
 
 [package.dependencies]
@@ -1503,13 +1503,13 @@ validators = ">=0.20.0,<0.21.0"
 
 [[package]]
 name = "koza"
-version = "0.6.0"
+version = "0.7.2"
 description = "Data transformation framework for LinkML data models"
 optional = false
 python-versions = "<4.0,>=3.9"
 files = [
-    {file = "koza-0.6.0-py3-none-any.whl", hash = "sha256:21be1eb8d8d6dd24901fe913bd3430aac472a3bc1460d84bf4e1936133a5f8a1"},
-    {file = "koza-0.6.0.tar.gz", hash = "sha256:6fbc2e693c9956df0c3fb8b8b4304baeec6bc9eb4377e85f7ec5e15228e47376"},
+    {file = "koza-0.7.2-py3-none-any.whl", hash = "sha256:2fb1fd5c5457b4e725536f05c7bc342d026dbd2af4971c833dfd77e44ffd0e18"},
+    {file = "koza-0.7.2.tar.gz", hash = "sha256:1405e5a6ac97f9010167cfa45c9d832d67172fd317dc879c459ad2813392a1f9"},
 ]
 
 [package.dependencies]
@@ -2150,9 +2150,9 @@ files = [
 
 [package.dependencies]
 numpy = [
+    {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
     {version = ">=1.22.4", markers = "python_version < \"3.11\""},
     {version = ">=1.23.2", markers = "python_version == \"3.11\""},
-    {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
 ]
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
@@ -2446,8 +2446,8 @@ files = [
 annotated-types = ">=0.4.0"
 pydantic-core = "2.20.1"
 typing-extensions = [
-    {version = ">=4.6.1", markers = "python_version < \"3.13\""},
     {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
+    {version = ">=4.6.1", markers = "python_version < \"3.13\""},
 ]
 
 [package.extras]
@@ -4134,4 +4134,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "b1713de49f062178c0e1f476b3f3b173c3385f6172e503adf31d61f87d93302a"
+content-hash = "9fbe2fdc252364a8981b7f8c8aebecf7f98a3e43091e3aecb126acf0005c5ca3"
