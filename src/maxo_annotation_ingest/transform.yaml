@@ -38,7 +38,7 @@ edge_properties:
   - id
   - category
   - subject
-  - subject_extension_qualifier
+  - subject_specialization_qualifier
   - predicate
   - object
   - disease_context_qualifier
