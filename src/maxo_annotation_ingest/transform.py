@@ -37,6 +37,7 @@ while (row := koza_app.get_row()) is not None:
         subject=row["maxo_id"],
         subject_specialization_qualifier=row.get("extension_id"),
         predicate=predicate,
+        original_predicate=row["maxo_relation"],
         object=row["hpo_id"],
         disease_context_qualifier=row.get("disease_id"),
         primary_knowledge_source="infores:maxo",

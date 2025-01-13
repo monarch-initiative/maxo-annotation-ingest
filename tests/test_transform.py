@@ -47,6 +47,7 @@ def test_row_with_extension(row_with_extension_entities):
     assert association.subject == "MAXO:0000434"
     assert association.subject_specialization_qualifier == "CHEBI:51599"
     assert association.predicate == "biolink:ameliorates_condition"
+    assert association.original_predicate == "TREATS"
     assert association.object == "HP:0001324"
     assert association.disease_context_qualifier == "MONDO:0014590"
     assert association.category == ["biolink:ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation"]

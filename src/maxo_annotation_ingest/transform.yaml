@@ -40,6 +40,7 @@ edge_properties:
   - subject
   - subject_specialization_qualifier
   - predicate
+  - original_predicate
   - object
   - disease_context_qualifier
   - publications
