@@ -1,0 +1,45 @@
+# Config file for transforming data from a source
+# See additional/optional config parameters at https://koza.monarchinitiative.org/Ingests/source_config/
+
+name: "maxo_annotation"
+
+reader:
+  files:
+    - "../data/maxo-annotations.tsv"  # Path relative to YAML location
+  format: "csv"
+  delimiter: "\t"
+  columns:
+    - disease_id
+    - disease_name
+    - citation
+    - maxo_id
+    - maxo_label
+    - hpo_id
+    - maxo_relation
+    - evidence_code
+    - extension_id
+    - extension_label
+    - attribute
+    - creator
+    - last_update
+    - created_on
+
+transform:
+  # code: transform.py  # Auto-detected from transform.yaml -> transform.py
+
+writer:
+  format: "tsv"
+  edge_properties:
+    - id
+    - category
+    - subject
+    - subject_specialization_qualifier
+    - predicate
+    - original_predicate
+    - object
+    - disease_context_qualifier
+    - publications
+    - primary_knowledge_source
+    - aggregator_knowledge_source
+    - knowledge_level
+    - agent_type

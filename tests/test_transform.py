@@ -1,23 +1,25 @@
 """
-An example test file for the transform script.
+Test file for the MAxO annotation transform script.
 
-It uses pytest fixtures to define the input data and the mock koza transform.
-The test_example function then tests the output of the transform script.
+Uses Koza 2.x testing patterns with KozaRunner and PassthroughWriter.
 
 See the Koza documentation for more information on testing transforms:
 https://koza.monarchinitiative.org/Usage/testing/
 """
 
 import pytest
-from koza.utils.testing_utils import mock_koza
+from koza.io.writer.passthrough_writer import PassthroughWriter
+from koza.runner import KozaRunner, KozaTransformHooks
+
+from transform import transform_record
+
 
 # Define the ingest name and transform script path
 INGEST_NAME = "maxo_annotation"
-TRANSFORM_SCRIPT = "./src/maxo_annotation_ingest/transform.py"
 
 
 @pytest.fixture
-def row_with_extension_entities(mock_koza):
+def row_with_extension_entities():
     row = {
         "disease_id": "MONDO:0014590",
         "disease_name": "Myasthenic Syndrome, Congenital, 18",
@@ -33,11 +35,14 @@ def row_with_extension_entities(mock_koza):
         "last_update": "2022-09-27",
         "created_on": "2022-09-27",
     }
-    return mock_koza(
-        INGEST_NAME,
-        [row],
-        TRANSFORM_SCRIPT,
+    writer = PassthroughWriter()
+    runner = KozaRunner(
+        data=iter([row]),
+        writer=writer,
+        hooks=KozaTransformHooks(transform_record=[transform_record]),
     )
+    runner.run()
+    return writer.data
 
 
 def test_row_with_extension(row_with_extension_entities):
@@ -55,10 +60,9 @@ def test_row_with_extension(row_with_extension_entities):
     assert association.aggregator_knowledge_source == ["infores:monarchinitiative"]
 
 
-# Define an example row to test (as a dictionary)
 @pytest.fixture
-def no_hpo_row():
-    return {
+def no_hpo_entities():
+    row = {
         "disease_id": "MONDO:0009797",
         "disease_name": "Orotic Aciduria",
         "citation": "PMID:9042911",
@@ -74,17 +78,14 @@ def no_hpo_row():
         "last_update": "2022-09-06",
         "created_on": "2022-09-06",
     }
-
-
-# Define the mock koza transform
-@pytest.fixture
-def no_hpo_entities(mock_koza, no_hpo_row):
-    # Returns [entity_a, entity_b, association] for a single row
-    return mock_koza(
-        INGEST_NAME,
-        no_hpo_row,
-        TRANSFORM_SCRIPT,
+    writer = PassthroughWriter()
+    runner = KozaRunner(
+        data=iter([row]),
+        writer=writer,
+        hooks=KozaTransformHooks(transform_record=[transform_record]),
     )
+    runner.run()
+    return writer.data
 
 
 def test_no_hpo(no_hpo_entities):
