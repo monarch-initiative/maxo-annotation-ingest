@@ -1,26 +1,25 @@
 import uuid  # For generating UUIDs for associations
 
+import koza
 from biolink_model.datamodel.pydanticmodel_v2 import (
     AgentTypeEnum,
     ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation,
     KnowledgeLevelEnum,
 )
-from koza.cli_utils import get_koza_app
-
-koza_app = get_koza_app("maxo_annotation")
 
 predicate_mapping = {
     "TREATS": "biolink:ameliorates_condition",
     "PREVENTS": "biolink:preventative_for_condition",
     "CONTRAINDICATED": "biolink:contraindicated_in",
     "UNKNOWN": "biolink:related_to",
-    "INVESTIGATES": "biolink:related_to", # TODO: this is too general, but biolink:diagnoses doesn't feel right
-    "LACK OF OBSERVED RESPONSE": "biolink:related_to", #TODO: this is also too general,
-                                                       # but negation + biolink:ameliorates_condition feels too strong
+    "INVESTIGATES": "biolink:related_to",  # TODO: this is too general, but biolink:diagnoses doesn't feel right
+    "LACK OF OBSERVED RESPONSE": "biolink:related_to",  # TODO: this is also too general,
+    # but negation + biolink:ameliorates_condition feels too strong
 }
 
 
-while (row := koza_app.get_row()) is not None:
+@koza.transform_record()
+def transform_record(koza_transform, row):
     # Code to transform each row of data
     # For more information, see https://koza.monarchinitiative.org/Ingests/transform
 
@@ -30,12 +29,10 @@ while (row := koza_app.get_row()) is not None:
     except KeyError:
         raise ValueError(f"Not sure how to map maxo_relation {row['maxo_relation']} to a biolink predicate")
 
-    disease_context_qualifier = row.get("disease_id") if row.get("disease_id") != row.get("hpo_id") else None
-
     association = ChemicalOrDrugOrTreatmentToDiseaseOrPhenotypicFeatureAssociation(
         id=str(uuid.uuid4()),
         subject=row["maxo_id"],
-        subject_specialization_qualifier=row.get("extension_id"),
+        subject_specialization_qualifier=row.get("extension_id") if row.get("extension_id") else None,
         predicate=predicate,
         original_predicate=row["maxo_relation"],
         object=row["hpo_id"],
@@ -47,4 +44,4 @@ while (row := koza_app.get_row()) is not None:
         publications=[row["citation"]],
     )
 
-    koza_app.write(association)
+    return [association]
